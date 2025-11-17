@@ -1,36 +1,50 @@
-🏗️ Arquitetura Medallion — Visão Geral
-Este projeto implementa a arquitetura Medallion para organização e tratamento de dados em camadas progressivas de qualidade e valor. Utilizando Microsoft Fabric, Spark e SQL, os dados são processados em três camadas principais:
+# 🏗️ Arquitetura Medallion — Visão Geral
 
-🔹 Bronze
-Dados brutos extraídos de fontes como APIs e arquivos CSV.
+Este projeto implementa a **Arquitetura Medallion** para organização e tratamento de dados em camadas progressivas de qualidade e valor.  
+Utilizando **Microsoft Fabric**, **Spark** e **SQL**, os dados são processados em três camadas principais:
 
-Armazenamento sem transformações, preservando fidelidade ao dado original.
+---
 
-Objetivo: servir como base confiável para auditoria e reprocessamento.
+## 🔹 Bronze — Dados Brutos
+- Dados extraídos diretamente de fontes como **APIs** e **arquivos CSV**.  
+- Armazenados **sem transformações**, preservando 100% da fidelidade ao dado original.  
+- **Objetivo:** servir como base confiável para auditoria e reprocessamentos futuros.
 
-🔸 Silver
-Dados tratados e estruturados com notebooks Spark e SQL.
+---
 
-Aplicação de limpezas, joins, enriquecimentos e validações.
+## 🔸 Silver — Dados Tratados
+- Dados **limpos, estruturados e enriquecidos** utilizando notebooks Spark e SQL.  
+- Inclui transformações como **remoção de nulos**, **padronizações**, **joins** e **validações**.  
+- **Objetivo:** fornecer dados prontos para análises exploratórias e modelagem.
 
-Objetivo: fornecer dados prontos para análises exploratórias e modelagens.
+---
 
-🟡 Gold
-Dados refinados e otimizados para consumo analítico.
+## 🟡 Gold — Dados Refinados
+- Dados preparados de forma otimizada para **consumo analítico**.  
+- Aplicação de **regras de negócio**, **agregações**, cálculos e métricas finais.  
+- **Objetivo:** alimentar dashboards, relatórios e modelos preditivos com alta confiabilidade.
 
-Aplicação de regras de negócio específicas, agregações e métricas.
+---
 
-Objetivo: alimentar dashboards, relatórios e modelos preditivos com dados confiáveis.
+## 📐 Modelo Semântico
+Criado a partir da camada **Gold** no Microsoft Fabric, contendo:
+- Entidades de negócio  
+- Relacionamentos  
+- Medidas DAX  
+- Estrutura optimizada para consumo por ferramentas como **Power BI**
 
-📐 Modelo Semântico
-Construído a partir da camada Gold no Microsoft Fabric.
+---
 
-Representa entidades de negócio, medidas e relacionamentos.
+## 📊 Regra de Negócio
 
-Facilita o consumo dos dados por ferramentas como Power BI.
+Este projeto explora a Arquitetura Medallion por meio da:
 
-📊 Regra de Negócio
-Este projeto tem como objetivo explorar a arquitetura Medallion por meio da extração de dados de uma API (X) e de um arquivo CSV (Y),
-focando em informações sobre países da União Europeia. A proposta é realizar limpezas simples e manipulações básicas utilizando notebooks com Spark e SQL, 
-permitindo o aprendizado prático dos conceitos fundamentais da arquitetura em camadas.A partir dos dados tratados, são gerados KPIs que ajudam a identificar e 
-analisar possíveis indicadores econômicos e sociais dos países europeus, oferecendo insights relevantes para tomada de decisão e visualização estratégica via Power BI.
+- **Extração de dados** de uma API (X) e de um arquivo CSV (Y)
+- **Foco nos países da União Europeia**
+- Aplicação de **limpezas e manipulações básicas** com Spark e SQL  
+- Geração de **KPIs** para identificar e analisar possíveis indicadores econômicos e sociais dos países europeus  
+- Entrega final orientada para **visualização estratégica** e **tomada de decisão** via Power BI
+
+---
+
+✳️ *O objetivo principal é o aprendizado prático dos conceitos fundamentais da Arquitetura Medallion e sua aplicação em cenários reais de engenharia de dados.*
